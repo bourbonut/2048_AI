@@ -106,9 +106,9 @@ class GeneticAlgorithm(Population):
 
     def mutation(self, liste_best: list) -> None:
         # Copie des meilleures IAs à muter
-        self.non_mutated = [copy(ai) for ai in liste_best]
+        self.mutated = [copy(ai) for ai in liste_best]
         # Parcoure toutes les Ias à muter
-        for i in range(len(self.non_mutated)):
+        for i in range(len(self.mutated)):
             # Pourcentage de mutations
             nb_genes = [int(s[0] * s[1] * self.params["rd"]) for s in self.shapes]
 
@@ -116,8 +116,8 @@ class GeneticAlgorithm(Population):
                 for _ in range(nb_genes[w]):
                     shape = self.shapes[w]
                     x, y = randint(0, shape[0] - 1), randint(0, shape[1] - 1)
-                    value = self.non_mutated[i][w][x, y] + 5 * random() - 2.5
-                    self.non_mutated[i][w][x, y] = value
+                    value = self.mutated[i][w][x, y] + 5 * random() - 2.5
+                    self.mutated[i][w][x, y] = value
 
     def next_generation(self) -> None:
         self.selection()
@@ -135,7 +135,7 @@ class GeneticAlgorithm(Population):
         # Croisement
         liste_best.extend(self.croisement())
         # Mise à jour avec la liste des IAs mutees
-        liste_best.extend(self.non_mutated)
+        liste_best.extend(self.mutated)
         # Mise en place de la nouvelle génération
         self.set_population(liste_best)
 
