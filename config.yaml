@@ -7,7 +7,7 @@ params_ai:
   - 32
   - 4
 params_generation:
-  n_generation: 5
+  n_generation: 200
   portion: 0.3
   rd: 0.3
   run_type: basic
