@@ -2,29 +2,29 @@ import numpy as np
 
 
 def sigmoid(x):
-    """Fonction d'activation"""
+    """Function of activation"""
     return 1 / (1 + np.exp(-x))
 
 
 class NeuNets:
 
     """
-    Classe reseau de neurones
-    La fonction 'backpropagation' n'est pas utilisee dans le projet
-    mais elle est tout de meme implementee
+    Neural networks class
+    The function 'backpropagation' is not used in this project
+    but it is implemented anyway
     """
 
     def __init__(self, params_ai: dict) -> None:
-        self.eta = params_ai["eta"]  # Parametre d'apprentissage
+        self.eta = params_ai["eta"]  # Learning parameter
         self._input = []
         self._output = []
         layers = params_ai["layers"]
         self.hidden_layers = [None for _ in range(len(layers) - 2)]
         shapes = ((layers[i], layers[i + 1]) for i in range(len(layers) - 1))
 
-        # Initialisation des poids de maniere aleatoire entre -2.5 et 2.5
-        borne_inf, borne_sup = (-2.5, 2.5)
-        a, b = borne_sup - borne_inf, borne_inf
+        # Initialization of weights randomly between -2.5 and 2.5
+        border_low, border_up = (-2.5, 2.5)
+        a, b = border_up - border_low, border_low
         random_sample = np.random.random_sample
         self.weights = [a * random_sample(shape) + b for shape in shapes]
 
@@ -47,7 +47,7 @@ class NeuNets:
         return str(self)
 
     def feedforward(self, _input):
-        """Fonction de calcul de la sortie du reseau de neurones"""
+        """Function to calculate the output of the neural network"""
         self._input = _input
         self.hidden_layers[0] = sigmoid(np.dot(self._input, self[0]))
         for i in range(1, len(self.hidden_layers)):
@@ -56,7 +56,7 @@ class NeuNets:
         self._output = sigmoid(np.dot(self.hidden_layers[-1], self[-1]))
 
     def backpropagation(self, y):
-        """Fonction de retropropagation du reseau de neurones"""
+        """backpropagation function of the neural network"""
         deltas = []
         shape = self[-1].shape
         gap = y - self._output

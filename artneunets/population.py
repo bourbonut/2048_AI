@@ -1,14 +1,14 @@
-from artneunets.ai import ArtInt
+from .ai import ArtInt
 import threading
 import time
 
 
 class Population:
 
-    """Classe Population qui est un groupe d'intelligences artificielles (classe ArtInt)"""
+    """Population class which is a group of A.I. (ArtInt class)"""
 
     def __init__(self, params_population, params_ai):
-        # Création d'une population d'IA
+        # Creation of a population of A.I.
         self.length = params_population["length"]
         self.games_played = params_population["games_played"]
         self.ais = [ArtInt(params_ai) for _ in range(self.length)]
@@ -29,13 +29,13 @@ class Population:
         return disp
 
     def simple_run(self, function: callable) -> None:
-        """Fait jouer les IAs a tour de role"""
+        """Each A.I. plays by turns"""
         for i, ai in enumerate(self.ais):
             ai.ai_start(function)
             self.scores[i] = ai.score
 
     def thread_run(self, function: callable) -> None:
-        """Fait jouer les IAs en meme temps avec des threads"""
+        """Threads used to have all A.I. playing simultaneously"""
         # Liste des threads
         threads = []
         for i in range(len(self)):
@@ -49,7 +49,7 @@ class Population:
             threads[i].join()
 
     def multiple_runs(self, index: int, function: callable) -> None:
-        """Permet de recuperer la moyenne des scores des differents jeux"""
+        """Get the mean score back to all different games"""
         meanscore = []
         # Les IAs jouent
         for _ in range(self.games_played):
