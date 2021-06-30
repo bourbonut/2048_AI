@@ -1,3 +1,4 @@
-from artneunets.neural_networks import NeuNets
-from artneunets.ai import ArtInt
-from artneunets.population import Population
+from .neural_networks import NeuNets
+from .ai import ArtInt
+from .population import Population
+from .genetic_pattern import GeneticPattern

@@ -1,11 +1,11 @@
-# Jouer a 2048
+# Play 2048
 
 from game.program2048 import Game2048
 
 
 class MyGame(Game2048):
 
-    """Classe pour jouer au jeu 2048"""
+    """To play the game 2048"""
 
     def __init__(self):
         Game2048.__init__(self)

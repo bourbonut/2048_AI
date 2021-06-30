@@ -1,34 +1,44 @@
-# 2048 Intelligence artificielle
+# 2048 Artificial intelligence
 
 ## Description
 
-Le but de ce projet est de créer un intelligence artificielle sur le jeu 2048
+What ?
+> The goal is to make an artificial intelligence on the game 2048.
 
-## Choix du langage de programmation
+Why ?
+> Because it's fun.
+> 
+How ?
+> For the moment, there are only few algorithms written:
+- minimax
+- alphabeta
+- expectiminimax
+- 2 different genetic algorithms
 
-J'ai choisi d'utiliser le langage de programmation Python pour les raisons suivantes:
-- Lorsque j'ai eu l'idée de ce projet, j'avais besoin d'un langage rapide à apprendre, facile à utiliser. Il se trouve qu'en classe préparatoire, Python est le langage qui est enseigné. 
-- Python est connu pour sa simplicité. Il est souvent utilisé dans des projets de Machine Learning (bien que ce projet n'utilise pas de base de données).
-- La communauté autour du langage Python est développée. Avoir accès à des packages comme pygame, scipy, numpy par exemple est un plus.
+## Choice of the programming language
 
-## Les différents algorithmes utilisés
+Obviously Python because it's easy to learn, to read, to debug.
+In addition, I'm using:
+- `pygame` to manage the 2D graphic interface of the game.
+- `numpy` to manage array calculations in the neural networks
+- `matplotlib` to draw and show graphs
 
-Deux versions différentes d'algorithmes génétiques accompagnées de réseaux de neurones:
+There are easy to use.
 
-- `genetic_algorithm_1.py` : dans cet algorithme, la première génération comporte des intelligences artificielles (ias) avec des réseaux de neurones aléatoires. Une fois qu'elles ont joué, je sélectionne les meilleures ias. La nouvelle génération est créée à partir de 3 groupes: un groupe avec les meilleures ias, un groupe avec des ias aléatoires croisées avec les meilleures ias et un groupe avec les meilleures ias avec des gênes mutés. Toutes les ias (qui ne sont pas les meilleures ias) subissent ou bien un croisement, ou bien une mutation.
-- `genetic_algorithm_2.py`: cet algorithme utilise le même principe que le premier, mais parmi toutes les ias à croiser ou à muter, certaines ne seront ni croiser ni muter.
+## Algorithms
 
-Dans le fichier `decisions_algorithms.py`:
+Two different versions of genetic algorithms (file `genetic_algorithms.py`):
 
-- algorithme minimax
-- algorithme alphabeta : plus optimisé que minimax
-- algorithme expectiminimax : plus performant que minimax
+- `GeneticAlgorithm1`: The first generation is composed of artificial intelligences (A.I.) with random neural networks weights. After they have played, best A.I are selected. A new generation is created depending on 3 groups: a group with the best A.I., a group with A.I. randomly crossed with the best A.I. and a group with the best A.I. but some of their genes are mutated. All A.I. are either crossed either mutated
+- `genetic_algorithm_2.py`: it almost the same but among all A.I. to cross or to mutate, some ones won't be neither crossed neither mutated.
 
-## Résultats
+In the file `decisions_algorithms.py`:
 
-Les algorithmes génétiques ont une convergence très lente. Plus de tests devraient être effectués pour trouver une configuration optimale.
-Les algorithmes de décision sont très performants. Le meilleur étant expectiminimax. Un dernier algorithme serait de faire évoluer le paramètre depth en fonction de la difficulté.
+- algorithm minimax
+- algorithm alphabeta : more optimized than minimax
+- algorithm expectiminimax : more efficient than minimax
 
-## Notes complémentaires
+## Results
 
-La fonction `backpropagation` du fichier `neural_networks.py` dans `artneunets` n'est pas utilisée dans le reste du projet. Je l'ai créé au départ pour avoir un réseau de neurones opérationnel. Mais dans mes idées d'intelligence artificielle, je n'ai pas eu recours à cette fonction.
+The convergence of genetic algorithms are slow. More tests must be done to get a better configuration.
+Decision algorithms are efficient. The best one is expectiminimax.
