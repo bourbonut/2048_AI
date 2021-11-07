@@ -7,7 +7,7 @@ What ?
 
 Why ?
 > Because it's fun.
-> 
+>
 How ?
 > For the moment, there are only few algorithms written:
 - minimax
@@ -30,7 +30,7 @@ There are easy to use.
 Two different versions of genetic algorithms (file `genetic_algorithms.py`):
 
 - `GeneticAlgorithm1`: The first generation is composed of artificial intelligences (A.I.) with random neural networks weights. After they have played, best A.I are selected. A new generation is created depending on 3 groups: a group with the best A.I., a group with A.I. randomly crossed with the best A.I. and a group with the best A.I. but some of their genes are mutated. All A.I. are either crossed either mutated
-- `genetic_algorithm_2.py`: it almost the same but among all A.I. to cross or to mutate, some ones won't be neither crossed neither mutated.
+- `GeneticAlgorithm2`: it almost the same but among all A.I. to cross or to mutate, some ones won't be neither crossed neither mutated.
 
 In the file `decisions_algorithms.py`:
 
